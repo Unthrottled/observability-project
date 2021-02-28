@@ -1,6 +1,6 @@
 import { GUID } from "./Constants.ts";
 import { MinTacticalActivityMapping } from "./GroomTacticalActivities.ts";
-import { stream_file } from "./ReadFile.ts";
+import { streamFile, writeFile } from "./ReadFile.ts";
 
 export enum ActivityType {
   ACTIVE = "ACTIVE",
@@ -90,7 +90,7 @@ const getExtraData = (
 };
 
 var row = 0;
-await stream_file("./jsonDump/history.json", (line: any) => {
+await streamFile("./jsonDump/history.json", (line: any) => {
   const activity: Activity = JSON.parse(line);
   if (
     activity.guid == GUID &&
@@ -105,4 +105,4 @@ await stream_file("./jsonDump/history.json", (line: any) => {
   }
 });
 
-Deno.writeTextFileSync('./minifiedJson/history.json', JSON.stringify(activities))
+writeFile('./minifiedJson/history.json', activities)

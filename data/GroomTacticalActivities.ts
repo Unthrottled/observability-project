@@ -1,4 +1,4 @@
-import { stream_file } from "./ReadFile.ts";
+import { streamFile } from "./ReadFile.ts";
 import { GUID } from "./Constants.ts";
 
 export interface ColorType {
@@ -33,7 +33,7 @@ export interface MinTacticalActivityMapping extends MinTacticalActivity{
 
 const activities: MinTacticalActivity[] = [];
 
-await stream_file("./jsonDump/tacticalActivity.json", (line) => {
+await streamFile("./jsonDump/tacticalActivity.json", (line) => {
   const activity: TacticalActivity = JSON.parse(line);
   if (activity.guid == GUID && !(activity.hidden || activity.removed)) {
     activities.push({
