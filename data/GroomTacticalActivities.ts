@@ -27,6 +27,9 @@ export interface MinTacticalActivity {
   c: string; // 1st background 2nd line color separated by 和 (missing #)
   ct: string; // activitiy's categories separated by 和 (minified see categories.json)
 }
+export interface MinTacticalActivityMapping extends MinTacticalActivity{
+  mapping: number;
+}
 
 const activities: MinTacticalActivity[] = [];
 
@@ -74,3 +77,8 @@ const minifiedActivities = activities.map((tacticalActivity, index) => ({
 
 Deno.writeTextFileSync('./minifiedJson/categories.json', JSON.stringify(minifiedCategories));
 Deno.writeTextFileSync('./minifiedJson/activities.json', JSON.stringify(minifiedActivities));
+Deno.writeTextFileSync('./minifiedJson/activitiesMappings.json', JSON.stringify(activities
+  .map((act, idx) => ({
+    ...act,
+    mapping: idx 
+  }))));
