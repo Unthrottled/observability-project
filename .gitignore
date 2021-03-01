@@ -28,3 +28,5 @@ masterThemes/
 
 data/jsonDump/
 data/minifiedJson/
+
+node_modules

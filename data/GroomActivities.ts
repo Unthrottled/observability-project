@@ -40,7 +40,6 @@ export interface Activity {
 
 export interface MinifiedActivity {
   t: number; // Antecedence Time
-  i: number; // id
   a?: number; // mapped activity id see minified activities.json
   r?: RecoveryTypes;
 }
@@ -98,7 +97,6 @@ await streamFile("./jsonDump/history.json", (line: any) => {
   ) {
     const extraData = getExtraData(activity);
     activities.push({
-      i: row++,
       t: activity.antecedenceTime,
       ...extraData,
     });
