@@ -88,7 +88,6 @@ const getExtraData = (
   return {};
 };
 
-var row = 0;
 await streamFile("./jsonDump/history.json", (line: any) => {
   const activity: Activity = JSON.parse(line);
   if (
@@ -103,4 +102,4 @@ await streamFile("./jsonDump/history.json", (line: any) => {
   }
 });
 
-writeFile('./minifiedJson/history.json', activities)
+writeFile('./minifiedJson/history.json', activities.sort((a,b) => a.t - b.t))

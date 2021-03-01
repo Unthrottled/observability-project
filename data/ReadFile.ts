@@ -13,6 +13,21 @@ export async function streamFile(
   file.close();
 }
 
+export async function streamFileWithResult<T>(
+  filename: string,
+  onLine: (line: string) => T
+): Promise<T[]> {
+  const file = await Deno.open(filename);
+  const bufReader = new BufReader(file);
+  const lines: T[] = [];
+  let line: string | null;
+  while ((line = await bufReader.readString("\n")) != null) {
+    lines.push(onLine(line.substring(0, line.length - 1)));
+  }
+  file.close();
+  return lines;
+}
+
 export async function writeFile<T>(
   filename: string,
   linesToWrite: T[]
