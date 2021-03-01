@@ -88,7 +88,7 @@ const getExtraData = (
   return {};
 };
 
-await streamFile("./jsonDump/history.json", (line: any) => {
+await streamFile("./jsonDump/history.json", (line: string) => {
   const activity: Activity = JSON.parse(line);
   if (
     activity.guid == GUID &&

@@ -1,5 +1,5 @@
 import { MinifiedActivity } from "./GroomActivities.ts";
-import { streamFile, streamFileWithResult } from "./ReadFile.ts";
+import { streamFileWithResult } from "./ReadFile.ts";
 
 const activities: MinifiedActivity[] = await streamFileWithResult(
   "./minifiedJson/history.json",
