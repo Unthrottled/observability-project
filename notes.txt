@@ -1,0 +1,18 @@
+I want this to be like a blog with numbers talking about specific data points.
+
+Statistics:
+
+- Total Hours Recorded:
+  - Break down of things that matter most (Like the pie chart)
+    - How long did I code?
+    - How long did I workout?
+    - How long did I Spend doing other things I didn't care about (excluding anime fridays.)
+    - Family Time?
+    - Creative Work?
+
+
+- Average time to work (to first activity)?
+- Average time of valuable work done outside of career?
+- What did an average week for me look like?
+- Pro Social Distancer?
+
